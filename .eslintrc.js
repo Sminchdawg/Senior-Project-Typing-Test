@@ -23,7 +23,7 @@ module.exports = {
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": "tsconfig.json",
+        project: ['./tsconfig.json'],
         "sourceType": "module",
         tsconfigRootDir: __dirname,
     },
@@ -188,9 +188,13 @@ module.exports = {
         "jsdoc/no-types": "error",
         "max-classes-per-file": "off",
         "max-len": [
-            "error",
+            2,
             {
-                "code": 140
+                code: 175,
+                tabWidth: 2,
+                ignoreComments: true,
+                ignoreTrailingComments: true,
+                ignoreUrls: true,
             }
         ],
         "new-parens": "error",
@@ -311,5 +315,10 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    overrides: [
+        {
+            files: ['*.component.ts'],
+        }
+    ]
 };
