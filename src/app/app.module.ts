@@ -6,15 +6,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login/login-page/login-page.component';
+import { TypingTestPageComponent } from './typing-test-page/typing-test-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    TypingTestPageComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import { LoginPageComponent } from './login/login-page/login-page.component';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

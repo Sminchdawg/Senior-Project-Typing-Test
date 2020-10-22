@@ -66,6 +66,7 @@ module.exports = {
           ]
         }
       ],
+      "linebreak-style": 0,
       "@typescript-eslint/interface-name-prefix": "off",
       "max-classes-per-file": "off",
       "@typescript-eslint/explicit-member-accessibility": "off",

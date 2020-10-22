@@ -1,0 +1,21 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Typing</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card>
+      <span *ngFor="let word of words">
+        {{word}}
+      </span>
+    </mat-card>
+  </mat-card-content>
+  <mat-card-actions class="card-actions">
+    <mat-form-field class="example-form-field">
+      <mat-label>Type the words here</mat-label>
+      <input matInput type="text" [(ngModel)]="currentWord" autofocus>
+      <button mat-button *ngIf="currentWord" matSuffix mat-icon-button aria-label="Clear" (click)="currentWord=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-card-actions>
+</mat-card>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 const express = require('express');
 
 const router = express.Router();
@@ -14,6 +15,5 @@ router.get('/', (req, res) => {
       console.log('Error: ', error);
     });
 })
-
 
 module.exports = router;
