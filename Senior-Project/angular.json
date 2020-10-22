@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Senior-Project-Typing-Test": {
+    "Senior-Project": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Senior-Project-Typing-Test",
+            "outputPath": "dist/Senior-Project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Senior-Project-Typing-Test:build"
+            "browserTarget": "Senior-Project:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Senior-Project-Typing-Test:build:production"
+              "browserTarget": "Senior-Project:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Senior-Project-Typing-Test:build"
+            "browserTarget": "Senior-Project:build"
           }
         },
         "test": {
@@ -114,18 +114,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Senior-Project-Typing-Test:serve"
+            "devServerTarget": "Senior-Project:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Senior-Project-Typing-Test:serve:production"
+              "devServerTarget": "Senior-Project:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Senior-Project-Typing-Test",
+  "defaultProject": "Senior-Project",
   "cli": {
     "analytics": "33eedba6-d3de-40f1-83d1-bf66c38427df"
   }

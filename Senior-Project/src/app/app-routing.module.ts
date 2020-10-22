@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SignInComponent } from './User/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { UserComponent } from './user/user.component';
 
@@ -13,10 +15,24 @@ const routes: Routes = [
         component: SignUpComponent,
       }
     ]
-  }, 
+  },
+  {
+    path: 'login',
+    component: UserComponent,
+    children: [
+      {
+        path: '',
+        component: SignInComponent,
+      }
+    ]
+  },
+  {
+    path: 'user-profile',
+    component: UserProfileComponent,
+  },
   {
     path: '',
-    redirectTo: '/sign-up',
+    redirectTo: '/login',
     pathMatch: 'full',
   }
 ];
