@@ -1,7 +1,7 @@
+import { UserService } from './../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from './../../shared/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,9 +11,11 @@ import { UserService } from './../../shared/user.service';
 export class SignInComponent implements OnInit {
   readonly emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
+  hide = true;
+
   model = {
-    email: '',
-    password: '',
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4)]),
   }
 
   serverErrorMessages: string;
@@ -29,8 +31,11 @@ export class SignInComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm): void {
-    this.userService.login(form.value).subscribe(
+  onSubmit(): void {
+    this.userService.login({
+      email: this.model.email.value,
+      password: this.model.password.value
+    }).subscribe(
       res => {
         this.userService.setToken(res['token']);
         this.router.navigateByUrl('/user-profile');
@@ -39,5 +44,13 @@ export class SignInComponent implements OnInit {
         this.serverErrorMessages = err.error.messages;
       }
     );
+  }
+
+  getErrorMessage() {
+    if (this.model.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.model.email.hasError('email') ? 'Not a valid email' : '';
   }
 }

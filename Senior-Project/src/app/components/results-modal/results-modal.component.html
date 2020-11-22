@@ -1,0 +1,11 @@
+<div mat-dialog-content class="results-modal">
+  <mat-list role="list">
+    <mat-list-item role="listitem">WPM: {{data.wpm}}</mat-list-item>
+    <mat-list-item role="listitem">Correct Words: {{data.correctWords}}</mat-list-item>
+    <mat-list-item role="listitem">Incorrect Words: {{data.incorrectWords}}</mat-list-item>
+  </mat-list>
+</div>
+<div mat-dialog-actions class="results-modal-footer">
+  <button mat-button (click)="onClose()">Share</button>
+  <button mat-button (click)="onClose()" cdkFocusInitial>Ok</button>
+</div>

@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<div class="full-container" [ngClass]="{'typing-test-dark-theme': (isDarkTheme | async)}">
+  <app-navbar></app-navbar>
+  <app-layout-card></app-layout-card>
+</div>

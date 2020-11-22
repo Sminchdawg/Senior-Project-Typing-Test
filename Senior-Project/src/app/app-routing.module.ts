@@ -1,3 +1,6 @@
+import { TypingTestPageComponent } from './pages/typing-test-page/typing-test-page.component';
+import { ResultsPageComponent } from './pages/results-page/results-page.component';
+import { OptionsPageComponent } from './pages/options-page/options-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -33,9 +36,27 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'typing-test',
+    component: TypingTestPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'options',
+    component: OptionsPageComponent, 
+  },
+  {
+    path: 'results',
+    component: ResultsPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full',
+  },
+  {
+    path: '**',
+    redirectTo: '/login',
   }
 ];
 

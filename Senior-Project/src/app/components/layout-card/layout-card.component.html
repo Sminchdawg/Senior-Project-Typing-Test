@@ -1,0 +1,22 @@
+<div class="layout-card">
+  <div class="inner-layout">
+    <mat-card class="main-card">
+      <div class="main-card-header">
+        <nav mat-tab-nav-bar>
+          <a mat-tab-link
+            *ngFor="let link of navLinks"
+            [routerLink]="link.path"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive"
+          >
+            <span class="material-icons">
+              {{link.icon}}
+            </span>
+            {{link.label}}
+          </a>
+        </nav>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-card>
+  </div>
+</div>

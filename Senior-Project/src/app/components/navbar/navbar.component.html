@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <span>Typing Legends</span>
+  <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">Dark Mode</mat-slide-toggle>
+</mat-toolbar>

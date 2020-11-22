@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Game Modes</mat-label>
+  <mat-select [(ngModel)]="selectedGameMode" (selectionChange)="onChange()">
+    <mat-option *ngFor="let option of gameModeOptions" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

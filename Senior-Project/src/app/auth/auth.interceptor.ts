@@ -1,5 +1,5 @@
+import { UserService } from './../shared/services/user.service';
 import { Router } from '@angular/router';
-import { UserService } from './../shared/user.service';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

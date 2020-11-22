@@ -1,0 +1,48 @@
+.options-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 6px -6px #777;
+  padding: 5px 0 5px 0px;
+}
+
+.word-container {
+  margin: 20px;
+  background-color: #ededed;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  height: 50px;
+  padding: 20px;
+}
+
+.input-box-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 15px;
+}
+
+.word-box {
+  width: 50%;
+}
+
+.correct-word {
+  color: #2cb67d;
+}
+
+.incorrect-word {
+  color: #ef4565
+}
+
+.word {
+  font-size: 24px;
+}
+
+.current-word {
+  background-color: #e3f6f5;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 30px;
+}

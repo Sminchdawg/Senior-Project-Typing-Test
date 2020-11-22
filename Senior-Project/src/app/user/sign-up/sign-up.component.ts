@@ -1,6 +1,6 @@
+import { UserService } from './../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserService } from './../../shared/user.service';
 
 @Component({
   selector: 'app-sign-up',

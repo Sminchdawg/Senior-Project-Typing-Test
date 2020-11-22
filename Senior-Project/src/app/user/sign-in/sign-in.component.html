@@ -1,31 +1,24 @@
-<form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
-  <input
-    type="text"
-    name="email"
-    #email="ngModel"
-    [(ngModel)]="model.email"
-    placeholder="Email"
-    [pattern]="emailRegex"
-    required
-    [ngClass]="{'invalid-textbox': signInForm.submitted && !email.valid}"
-  >
-  <div *ngIf="signInForm.submitted && email.errors?.pattern">
-    <label>Invalid email address.</label>
-  </div>
-  <input
-    type="password"
-    name="password"
-    #password="ngModel"
-    [(ngModel)]="model.password"
-    placeholder="Password"
-    required
-    minlength="4"
-    [ngClass]="{'invalid-textbox': signInForm.submitted && !password.valid}"
-  >
-  <div *ngIf="signInForm.submitted && password.errors?.minlength">
-    <label>Enter at least 4 characters.</label>
-  </div>
-  <input type="submit" value="Sign In">
+<form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit()">
+  <mat-card>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="model.email" required>
+        <mat-error *ngIf="model.email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="model.password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button type="submit" color="primary">Sign In</button>
+  </mat-card>
 </form>
 
 <div *ngIf="serverErrorMessages">{{serverErrorMessages}}</div>

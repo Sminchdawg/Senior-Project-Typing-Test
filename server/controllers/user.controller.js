@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const passport = require('passport');
 const _ = require('lodash');
+const { response } = require('express');
 
 const User = mongoose.model('User');
+const Result = mongoose.model('Result');
 
 module.exports.register = (req, response, next) => {
   const user = new User();
@@ -22,6 +24,34 @@ module.exports.register = (req, response, next) => {
   });
 }
 
+module.exports.results = (req, response, next) => {
+  const result = new Result();
+  result.wpm = req.body.wpm;
+  result.correctWords = req.body.correctWords;
+  result.incorrectWords = req.body.incorrectWords;
+  result.userId = req.body.userId;
+
+  result.save((error, doc) => {
+    if (!error) {
+      response.send(doc);
+    } else {
+      console.log(error);
+      return next(error);
+    }
+  })
+}
+
+module.exports.userResults = (req, res, next) => {
+  Result.find({ userId: req.params.userId },
+    (error, result) => {
+      if (!result) {
+        return res.status(404).json({ status: false, message: 'User does not have any results'});
+      }
+
+      return res.status(200).json({ status: true, results: result});
+    })
+}
+
 module.exports.authenticate = (req, res, next) => {
   // Call for passport authentication
   passport.authenticate('local', (error, user, info) => {
@@ -31,7 +61,7 @@ module.exports.authenticate = (req, res, next) => {
     }
     // Registered user
     if (user) {
-      return res.status(200).json({ "token": user.generateJwt() });
+      return res.status(200).json({ "token": user.generateJwt(), "id": user.id });
     }
     // Unknown user or wrong password
     return res.status(404).json(info);
@@ -42,7 +72,7 @@ module.exports.userProfile = (req, res, next) => {
   User.findOne({ _id: req._id }, 
     (error, user) => {
       if (!user) {
-        return res.status(404).json({ status: false, message: 'User record not found.' })
+        return res.status(404).json({ status: false, message: 'User record not found.' });
       }
 
       return res.status(200).json({ status: true, user: _.pick(user, ['fullName', 'email']) });

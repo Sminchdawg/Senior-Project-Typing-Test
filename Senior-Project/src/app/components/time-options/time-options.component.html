@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Time options</mat-label>
+  <mat-select [disabled]="isActive | async" [(ngModel)]="selectedTimeForTest" (selectionChange)="onChange()" required>
+    <mat-option *ngFor="let option of timeOptions" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

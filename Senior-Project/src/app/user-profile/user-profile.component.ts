@@ -1,6 +1,6 @@
+import { UserService } from './../shared/services/user.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './../shared/user.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -27,7 +27,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   onLogout(): void {
-    this.userService.deleteToken();
+    this.userService.logout()
     this.router.navigate(['/login']);
   }
 }

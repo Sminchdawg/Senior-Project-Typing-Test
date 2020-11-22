@@ -1,0 +1,13 @@
+<button 
+    mat-fab 
+    color="accent" 
+    aria-label="Example icon button with a bookmark icon"
+    (click)="switchTimerEnabled()"
+    >
+    <ng-container *ngIf="!(isActive | async) && timerEnabled; else notActive">
+        {{totalTime}}
+    </ng-container>
+    <ng-template #notActive>
+        {{timerEnabled ? timeLeft : ''}}
+    </ng-template>
+</button>

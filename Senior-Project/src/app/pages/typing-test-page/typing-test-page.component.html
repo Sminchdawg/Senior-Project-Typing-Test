@@ -1,0 +1,56 @@
+<div class="options-container">
+  <mat-card>
+    {{wordsPerMinute}} WPM
+  </mat-card>
+  <app-timer-component
+    class="timer-component"
+    (time)="onTimeChange($event)"
+  >
+  </app-timer-component>
+  <app-time-options></app-time-options>
+</div>
+<mat-card class="word-card">
+  <div class="word-container">
+    <div *ngIf="isActive | async" class="inner-word-container">
+      <span
+        class="word"
+        [ngClass]="{
+          'correct-word': word.correct, 
+          'incorrect-word': !word.correct && word.tried,
+          'current-word':  word.current
+        }" 
+        *ngFor="let word of firstWordRow"
+      >
+        {{word.text}}
+      </span>
+      <br>
+      <span class="word" *ngFor="let word of secondWordRow">
+        {{word.text}}
+      </span>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="input-box-container">
+    <button 
+      mat-raised-button 
+      (click)="testStarted()"
+      color="primary"
+      [disabled]="isActive | async"
+      autofocus
+    >
+      Click to start
+    </button>
+    <mat-form-field class="word-box">
+      <mat-label>Type the word here</mat-label>
+      <input
+        #input
+        matInput
+        placeholder="word"
+        autocomplete="off"
+        (keydown.space)="checkWord(input.value); input.value=''"
+        (input)="trimSpace(input)"
+      >
+    </mat-form-field>
+    <button [disabled]="!(isActive | async)" mat-raised-button (click)="onReset()">Reset</button>
+  </div>
+</mat-card>

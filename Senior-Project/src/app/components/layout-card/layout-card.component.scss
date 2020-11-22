@@ -1,0 +1,29 @@
+.layout-card {
+  height: calc(100% - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-layout {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.main-card {
+  width: 50%;
+  border-top: 5px solid #ff4081;
+  margin-bottom: 5px;
+}
+
+.main-card-header {
+  padding-bottom: 15px;
+}
+
+.material-icons {
+  padding-right: 8px;
+}
