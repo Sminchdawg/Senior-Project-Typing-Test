@@ -1,0 +1,39 @@
+<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit()">
+  <mat-card>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your full name</mat-label>
+        <input matInput placeholder="John Smith" [formControl]="model.fullName" required>
+        <mat-error *ngIf="signUpForm.submitted && model.fullName.errors.required">First name is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="model.email" required>
+        <mat-error *ngIf="signUpForm.submitted && model.email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="model.password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf=" signUpForm.submitted && model.password.errors">
+          <label *ngIf="model.password.errors.required">This field is required.</label>
+          <label *ngIf="model.password.errors.minlength">Enter at least 4 characters.</label>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button type="submit" color="primary">Sign Up</button>
+  </mat-card>
+</form>
+
+<div *ngIf="showSuccessMessage">Saved successfully</div>
+
+<div *ngIf="serverErrorMessages">{{serverErrorMessages}}</div>

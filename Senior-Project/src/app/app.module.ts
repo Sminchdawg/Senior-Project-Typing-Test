@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 // built-in
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -7,10 +8,8 @@ import { NgModule } from '@angular/core';
 // components
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UserComponent } from './user/user.component';
-import { SignUpComponent } from './user/sign-up/sign-up.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { SignInComponent } from './User/sign-in/sign-in.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { OptionsPageComponent } from './pages/options-page/options-page.component';
 import { ResultsPageComponent } from './pages/results-page/results-page.component';
 import { TypingTestPageComponent } from './pages/typing-test-page/typing-test-page.component';
@@ -52,7 +51,6 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     SignUpComponent,
     UserProfileComponent,
     SignInComponent,

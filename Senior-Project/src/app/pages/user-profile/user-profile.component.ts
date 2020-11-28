@@ -1,6 +1,6 @@
-import { UserService } from './../shared/services/user.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-user-profile',
