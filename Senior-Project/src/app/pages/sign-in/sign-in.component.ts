@@ -41,7 +41,7 @@ export class SignInComponent implements OnInit {
         this.router.navigateByUrl('/user-profile');
       },
       err => {
-        this.serverErrorMessages = err.error.messages;
+        this.serverErrorMessages = err.error.message || err.message;
       }
     );
   }

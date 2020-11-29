@@ -4,7 +4,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Enter your full name</mat-label>
         <input matInput placeholder="John Smith" [formControl]="model.fullName" required>
-        <mat-error *ngIf="signUpForm.submitted && model.fullName.errors.required">First name is required</mat-error>
+        <mat-error *ngIf="signUpForm.submitted && model.fullName.errors?.required">First name is required</mat-error>
       </mat-form-field>
     </div>
 
@@ -30,10 +30,7 @@
       </mat-form-field>
     </div>
 
+    <div *ngIf="serverErrorMessages" class="errorMessage">{{serverErrorMessages}}</div>
     <button mat-raised-button type="submit" color="primary">Sign Up</button>
   </mat-card>
 </form>
-
-<div *ngIf="showSuccessMessage">Saved successfully</div>
-
-<div *ngIf="serverErrorMessages">{{serverErrorMessages}}</div>
