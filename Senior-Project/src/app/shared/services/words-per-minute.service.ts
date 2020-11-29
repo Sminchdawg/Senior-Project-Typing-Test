@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ResultsData } from '../models/results-data';
-import { TypingTestService } from './typing-test.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +12,7 @@ export class WordsPerMinuteService {
 
   private wordsPerMinute = 0;
 
-  constructor(
-    private typingTestService: TypingTestService,
-  ) { 
-    // this.typingTestService.getIsActiveObservable().subscribe((response) => {
-    //   if (response === false) {
-    //     // this.resetWords();
-    //   }
-    // })
-  }
+  constructor() {}
 
   public getWordsPerMinute(selectedTimeForTest: number, timeLeft?: number): number {
     if (!timeLeft) {

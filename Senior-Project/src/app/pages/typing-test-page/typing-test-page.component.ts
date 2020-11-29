@@ -107,7 +107,10 @@ export class TypingTestPageComponent implements OnInit {
       incorrectWords: result.incorrectWords,
       userId: this.userService.getCurrentUserId(),
     }).subscribe(() => {
-      this.wordsPerMinuteService.resetWords();
+        this.wordsPerMinuteService.resetWords();
+      },
+      () => {
+        this.wordsPerMinuteService.resetWords();
     })
   }
 

@@ -32,7 +32,7 @@ export class WordsService {
   }
 
   private generateWordText(): void {
-    const phrase = "dare temporary loose delay cat clam laughable dine mighty fallacious tested net tasteless loutish sleet use manage alley erratic tax awake sore meek soup edge supply match instinctive quit fuzzy show deer hypnotize hurt yell difficult spiky snatch surmise slam line hydrant pumped eggnog gash flaky letter watch ask humorous mysterious chip rabbits import";
+    const phrase = "a about all also and as at be because but by can come could day do even find first for from get give go have he her here him his how I if in into it its just know like look make man many me more my new no not now of on one only or other our out people say see she so some take tell than that the their them then there these they thing think this those time to two up use very want way we well what when which who will with would year you your";
     this.wordText = phrase.split(' ');
   }
 }
