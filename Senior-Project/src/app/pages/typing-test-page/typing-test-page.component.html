@@ -17,7 +17,8 @@
         [ngClass]="{
           'correct-word': word.correct, 
           'incorrect-word': !word.correct && word.tried,
-          'current-word':  word.current
+          'current-word':  word.current,
+          'static-word': !word.tried
         }" 
         *ngFor="let word of firstWordRow"
       >

@@ -1,4 +1,4 @@
-<div class="layout-card">
+<div class="layout-card" [ngClass]="{'layout-card-dark': isDarkTheme | async}">
   <div class="inner-layout">
     <mat-card class="main-card">
       <div class="main-card-header">

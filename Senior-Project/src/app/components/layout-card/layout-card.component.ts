@@ -1,6 +1,8 @@
 import { UserService } from './../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { NavLink } from '../../shared/models/nav-link';
+import { ThemeService } from 'src/app/shared/services/theme.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-layout-card',
@@ -10,11 +12,15 @@ import { NavLink } from '../../shared/models/nav-link';
 export class LayoutCardComponent implements OnInit {
   navLinks: Array<NavLink> = new Array<NavLink>();
 
+  isDarkTheme: Observable<boolean>;
+
   constructor(
     private userService: UserService,
+    private themeService: ThemeService,
   ) { }
 
   ngOnInit(): void {
+    this.isDarkTheme = this.themeService.getDarkTheme();
     this.navLinks.push(new NavLink('Sign In', 'login'));
     this.navLinks.push((new NavLink('Sign Up', 'sign-up')));
 

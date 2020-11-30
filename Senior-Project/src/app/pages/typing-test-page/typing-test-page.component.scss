@@ -29,15 +29,16 @@
 }
 
 .correct-word {
-  color: #2cb67d;
+  color: #2cb67d !important;;
 }
 
 .incorrect-word {
-  color: #ef4565
+  color: #ef4565 !important;
 }
 
 .word {
   font-size: 24px;
+  color: black;
 }
 
 .current-word {
